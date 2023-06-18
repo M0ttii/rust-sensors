@@ -1,0 +1,22 @@
+[package]
+name = "rust-sensors"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+ctrlc = "3.4.0"
+lazy_static = "1.4.0"
+sysinfo = "0.29.0"
+[target.'cfg(windows)'.dependencies]
+win-kernel-driver = { git = "https://github.com/alex-dow/winRing0-rs" }
+win_ring0 = { git = "https://github.com/alex-dow/winRing0-rs" }
+
+[[bin]]
+name = "rust-sensors"
+path = "main.rs"
+
+[dependencies.windows]
+version = "0.48"
+features = ["Data_Xml_Dom", "Win32_Foundation", "Win32_Security", "Win32_System_Threading", "Win32_UI_WindowsAndMessaging", "Win32_System_Wmi", "Win32_System_Com", "Win32_System_Ole"]
